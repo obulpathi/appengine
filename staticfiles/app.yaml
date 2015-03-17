@@ -1,15 +1,39 @@
 version: 1
-runtime: python27
+runtime: python
 api_version: 1
-threadsafe: true
 
 handlers:
-- url: /stylesheets
-  static_dir: stylesheets
+- url: /(.*\.css)
+  mime_type: text/css
+  static_files: static/
+  upload: static/(.*\.css)
 
-- url: /.*
-  script: staticfiles.app
+- url: /(.*\.js)
+  mime_type: text/javascript
+  static_files: js/
+  upload: js/(.*\.js)
 
-libraries:
-- name: jinja2
-  version: latest
+- url: /(.*\.txt)
+  mime_type: text/plain
+  static_files: txt/
+  upload: txt/(.*\.txt)
+
+- url: /(.*\.xml)
+  mime_type: application/xml
+  static_files: xml/
+  upload: xml/(.*\.xml)
+
+# image files
+- url: /(.*\.(bmp|gif|ico|jpeg|jpg|png))
+  static_files: images/
+  upload: images/(.*\.(bmp|gif|ico|jpeg|jpg|png))
+
+# index files
+- url: /index.html
+  static_files: index.html
+  upload: index.html
+
+# site root
+- url: /
+  static_files: index.html
+  upload: index.html
