@@ -34,6 +34,6 @@ handlers:
   upload: index.html
 
 # site root
-- url: /
+- url: /*
   static_files: index.html
   upload: index.html
