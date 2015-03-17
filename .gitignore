@@ -43,3 +43,5 @@ tags
 .pdbrc
 TAGS
 cscope.*
+
+index.yaml
